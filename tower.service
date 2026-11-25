@@ -1,0 +1,16 @@
+[Unit]
+Description=Mini Tower controller (fan, OLED display, RGB lighting)
+After=multi-user.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/pi/luma.examples
+ExecStart=/home/pi/luma-env/bin/python3 /home/pi/luma.examples/tower.py
+Restart=always
+RestartSec=5
+TimeoutStopSec=15
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
